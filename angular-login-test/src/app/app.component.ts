@@ -1,31 +1,17 @@
-import {component} from 'angular2/core';
-import {authenticationService} from './authentication.service'
-
+import {Component} from 'angular2/core';
+import {LoginComponent} from './login.component';
+import {PrivateComponent} from './private.component';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+ 
 @Component({
-    selector: 'login-form',
-    providers: [AuthenticationService],
-    template:`
-        <div class="container">
-            <div class="content">
-                <span>Congratulations, you have successfully logged in!!</span?
-                <br />
-                <a (click)="logout()" href="#">Click here to logout</a>
-            </div>
-        </div>
-    `
+    selector: 'my-app',
+    directives: [LoginComponent, ROUTER_DIRECTIVES],
+    template: `
+            <router-outlet></router-outlet>
+        `
 })
-
-export class PrivateComponent {
-
-    constructor(
-        privare _service:AuthenticationService
-    ){}
-
-    ngOnInit(){
-        this._service.checkCredentials();
-    }
-
-    logout() {
-        this._service.logout();
-    }
-}
+@RouteConfig([
+    { path: '/home', name: 'Home', component: PrivateComponent, useAsDefault:true },
+    { path: '/login', name: 'Login', component: LoginComponent }
+])
+export class AppComponent {}
