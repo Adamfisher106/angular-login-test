@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/Core';
 import {LoginComponent} from './login.component';
 import {PrivateComponent} from './private.component';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/Router';
  
 @Component({
     selector: 'my-app',
