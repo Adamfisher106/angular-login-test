@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { TableService } from '../services/app.table.service';
-
+import {Component, ElementRef} from 'angular2/core';
+import {AuthenticationService, User} from './authentication.service'
+ 
 @Component({
-    selector: 'app-table',
-    template: `<h1></h1>
+    selector: 'login-form',
+    template: `
     <div class="container">
         <div class="panel-body">
             <div class="row">
@@ -22,7 +22,6 @@ import { TableService } from '../services/app.table.service';
             <button(click)="login()" class="btn" type="submit" name"action">Login</button> 
         </div>
     </div> `,
-    providers: [TableService]
 })
 
 export class LoginComponent {
